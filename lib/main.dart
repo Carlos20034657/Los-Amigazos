@@ -40,7 +40,7 @@ class InicioPage extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blueAccent,
-            foregroundColor: Colors.white,
+            foregroundColor: Colors.black,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             textStyle: const TextStyle(fontSize: 18),
           ),
