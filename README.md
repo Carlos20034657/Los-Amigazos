@@ -1,3 +1,6 @@
-#Activity  M4 entrega APP
+# Actividad M4 APP
 
-This activity is realized by "Los amigazos"
+Carlos 
+Omar
+Alfredo
+Martin

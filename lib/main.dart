@@ -3,36 +3,49 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(ECGApp());
+void main() => runApp(const ECGApp());
 
 class ECGApp extends StatelessWidget {
+  const ECGApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ECG Simulador 11',
+      title: 'ECG Simulador',
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: Colors.red,
+        colorSchemeSeed: Colors.blue,
+        textTheme: GoogleFonts.robotoMonoTextTheme(),
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => InicioPage(),
-        '/medicion': (context) => MedicionPage(),
+        '/': (context) => const InicioPage(),
+        '/medicion': (context) => const MedicionPage(),
       },
     );
   }
 }
 
 class InicioPage extends StatelessWidget {
+  const InicioPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Simulador ECG')),
+      backgroundColor: Colors.blue.shade50,
+      appBar: AppBar(title: const Text('Simulador ECG')),
       body: Center(
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueAccent,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            textStyle: const TextStyle(fontSize: 18),
+          ),
           onPressed: () => Navigator.pushNamed(context, '/medicion'),
-          child: Text('Comenzar a medir frecuencia cardiaca'),
+          child: const Text('Comenzar a medir frecuencia cardiaca'),
         ),
       ),
     );
@@ -40,8 +53,10 @@ class InicioPage extends StatelessWidget {
 }
 
 class MedicionPage extends StatefulWidget {
+  const MedicionPage({super.key});
+
   @override
-  _MedicionPageState createState() => _MedicionPageState();
+  State<MedicionPage> createState() => _MedicionPageState();
 }
 
 class _MedicionPageState extends State<MedicionPage> {
@@ -60,7 +75,7 @@ class _MedicionPageState extends State<MedicionPage> {
 
   Future<void> _loadCsvData() async {
     final rawData = await rootBundle.loadString('assets/ecg_data.csv');
-    final lines = LineSplitter.split(rawData).skip(2); // skip headers
+    final lines = LineSplitter.split(rawData).skip(2);
     _allData = lines.map((line) {
       final parts = line.split(',');
       final x = double.tryParse(parts[0]) ?? 0.0;
@@ -105,7 +120,8 @@ class _MedicionPageState extends State<MedicionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Medición en tiempo real')),
+      appBar: AppBar(title: const Text('Medición en tiempo real')),
+      backgroundColor: Colors.blue.shade50,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -121,7 +137,10 @@ class _MedicionPageState extends State<MedicionPage> {
                   lineBarsData: [
                     LineChartBarData(
                       isCurved: false,
-                      gradient: LinearGradient(colors: [Colors.red, Colors.red]),
+                      gradient: const LinearGradient(colors: [
+                        Colors.blue,
+                        Colors.teal,
+                      ]),
                       barWidth: 2,
                       spots: _visibleData,
                       dotData: FlDotData(show: false),
@@ -130,11 +149,15 @@ class _MedicionPageState extends State<MedicionPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                    foregroundColor: Colors.white,
+                  ),
                   onPressed: _toggleRunning,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white, // Color del texto
