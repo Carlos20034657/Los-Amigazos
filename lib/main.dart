@@ -126,6 +126,15 @@ class _MedicionPageState extends State<MedicionPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            Text(
+              'Señal ECG en tiempo real',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+            ),
+            const SizedBox(height: 10),
             Expanded(
               child: LineChart(
                 LineChartData(
