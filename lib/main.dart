@@ -168,10 +168,6 @@ class _MedicionPageState extends State<MedicionPage> {
                     foregroundColor: Colors.white,
                   ),
                   onPressed: _toggleRunning,
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, // Color del texto
-                      backgroundColor: Colors.red,   // Color de fondo del botón
-                      ),
                   child: Text(_isRunning ? 'Pausar' : 'Reanudar'),
                 ),
                 DropdownButton<int>(
