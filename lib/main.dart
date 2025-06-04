@@ -10,7 +10,7 @@ class ECGApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ECG Simulador',
+      title: 'ECG Simulador 4',
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.red,
