@@ -40,7 +40,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Bienvenido ${widget.name}, gracias por utilizar la app "ECG recording App"', style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text('Bienvenido ${widget.name}, gracias por utilizar la app "ECG recording App" by ALCOM Biomedical', style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 20),
             const Text('Antes de continuar por favor acepta lo siguiente:', style: TextStyle(fontWeight: FontWeight.bold)),
             CheckboxListTile(

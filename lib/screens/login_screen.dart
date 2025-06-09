@@ -32,16 +32,43 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('ECG recording App', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 60),
+            const Text(
+              'ECG recording App',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 16),
-            const Text('Por favor ingresa tus datos:', style: TextStyle(fontSize: 16)),
-            TextField(controller: _nameController, decoration: const InputDecoration(labelText: 'Nombre')),
-            TextField(controller: _ageController, decoration: const InputDecoration(labelText: 'Edad')),
-            TextField(controller: _genderController, decoration: const InputDecoration(labelText: 'Género')),
+            const Text(
+              'Por favor ingresa tus datos:',
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Nombre'),
+            ),
+            TextField(
+              controller: _ageController,
+              decoration: const InputDecoration(labelText: 'Edad'),
+            ),
+            TextField(
+              controller: _genderController,
+              decoration: const InputDecoration(labelText: 'Género'),
+            ),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: _continue, child: const Text('Continue'))
+            ElevatedButton(
+              onPressed: _continue,
+              child: const Text('Continue'),
+            ),
+            const Spacer(), // Empuja la imagen hacia abajo
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Image.asset(
+                'assets/ALCOM.png', // Asegúrate que esta imagen exista y esté declarada
+                height: 100,
+              ),
+            ),
           ],
         ),
       ),
